@@ -1,0 +1,50 @@
+﻿@model IEnumerable<JachtyV2.Wypozyczenie2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Zamowienia</title>
+</head>
+<body>
+    <h2> Rezerwacja udana</h2>
+    <p>Twoje zamówienia</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IDJacht)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataOd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDo)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Where(p => p.UserID == ViewBag.id ))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDJacht)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataOd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDo)
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

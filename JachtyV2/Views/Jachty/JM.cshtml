@@ -1,0 +1,62 @@
+﻿@model IEnumerable<JachtyV2.Jachty2>
+
+@{
+    ViewBag.Title = "JM";
+}
+
+<h2>Jachty morskie do wypożyczenia</h2>
+
+<!--  <p>
+    @Html.ActionLink("Create New", "Create")
+</p>-->
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silnik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxOsob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dlugosc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cena)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Where(p => p.Kategoria == "Morskie"))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Silnik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxOsob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dlugosc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                @Html.ActionLink("Wypożycz", "Wypo", new { id = item.IDJacht })
+            </td>
+        </tr>
+    }
+
+</table>
